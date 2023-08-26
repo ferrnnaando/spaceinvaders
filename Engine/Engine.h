@@ -1,9 +1,11 @@
 #pragma once
-#include "../headers/header.h"
+
+#include <list>
+#include "../header.h"
 
 class Engine {
     public:
-        Engine();
+        Engine(sf::RenderWindow&);
         void run();
     private:
         void init();
@@ -12,7 +14,7 @@ class Engine {
         void update();
         void render();
 
-        sf::RenderWindow mWindow;
+        sf::RenderWindow* mWindow;
         sf::Clock mClock;
 
         sf::Texture t_mHunter;
@@ -22,16 +24,16 @@ class Engine {
         sf::Texture t_background_4;
         sf::Texture t_bullet_1;
         
-        sf::Image i_appIcon;
-        
         sf::SoundBuffer b_shotAudio;
         sf::Sound a_shot;
 
         sf::Sprite s_mHunter;
         sf::Sprite s_background_1;
 
-        sf::Texture t_background1;
+        std::list<sf::Sprite> _entities;
+
+        bool LeftShot = false;
+        bool haveReachedMaxY = false;
         bool moveLeft = false;
         bool moveRight = false;
-        bool isPressed = true;
 };
