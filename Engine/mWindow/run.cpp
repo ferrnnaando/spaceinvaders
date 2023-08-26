@@ -4,7 +4,8 @@ void Engine::run()
 {   
     while (mWindow.isOpen())
     {
-        processEvents();
+        processWindowEvents();
+        processUserEvents();
         update();
         render();
     } 

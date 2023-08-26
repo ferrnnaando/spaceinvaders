@@ -1,6 +1,6 @@
 #include "../Engine.h"
 
-void Engine::processEvents() {
+void Engine::processWindowEvents() {
     sf::Event event;
     while(mWindow.pollEvent(event)) {
         switch(event.type) {
@@ -8,8 +8,7 @@ void Engine::processEvents() {
                 mWindow.close();
                 break;
             
-            case sf::Event::LostFocus:
-                std::cout << "no fyucs";
+            default:
                 break;
         }
     }
